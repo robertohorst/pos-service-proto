@@ -8,5 +8,5 @@ option java_package = "br.qikserve.posserviceproto.service";
 option java_outer_classname = "ServiceProtos";
 
 service MenuService{
-  rpc getMenu(PosConfig) returns (MenuResponse);
+  rpc getMenu(PosConfigMap) returns (MenuResponse);
 }
