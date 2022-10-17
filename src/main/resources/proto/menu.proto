@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.qikserve.posserviceproto.model.menu";
+option java_outer_classname = "MenuProtos";
+
+message MenuResponse{
+  repeated PosEntityLink root = 1;
+  repeated PosEntity entities = 2;
+}
+
+message PosEntity{
+  PosEntityType type = 1;
+  string id = 2;
+  string name = 3;
+  string description = 4;
+
+  double price = 5;
+  bool available = 6;
+  string image = 7;
+  double factor = 8;
+  string plu = 9;
+  bool alcohol = 10;
+
+  repeated AllergenType allergens = 11;
+
+  repeated PosEntityLink links = 12;
+}
+
+message PosEntityLink{
+  string id = 1;
+  PosEntityType type = 2;
+}
+
+enum PosEntityType {
+  ITEM = 0;
+  CATEGORY = 1;
+  MODIFIERS = 2;
+  INGREDIENTS = 3;
+  CROSS_SELLS = 4;
+  COMBO_MEAL = 5;
+  COMBO_ITEM = 6;
+  SIZED_ITEM = 7;
+}
+
+enum AllergenType {
+  CELERY = 0;
+  GLUTEN = 1;
+  GRAINS_GLUTEN = 2;
+  CRUSTACEANS = 3;
+  EGGS = 4;
+  FISH = 5;
+  LUPIN = 6;
+  MILK = 7;
+  MOLLUSCS = 8;
+  MUSTARD = 9;
+  NUTS = 10;
+  PEANUTS = 11;
+  SHELLFISH = 12;
+  SOYA = 13;
+  SULPHUR = 14;
+  SESAME = 15;
+  SULPHITES = 16;
+  CEREALS = 17;
+  DAIRY = 18;
+}

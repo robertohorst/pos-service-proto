@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "login.proto";
+
+option java_multiple_files = true;
+option java_package = "br.qikserve.posserviceproto.service";
+option java_outer_classname = "ServiceProtos";
+
+service  UserService {
+  rpc login(LoginRequest) returns (APIResponse);
+  rpc logout(Empty) returns (APIResponse);
+}
